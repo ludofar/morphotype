@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Énergétique T40</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+        .question {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            display: none;
+        }
+        #results h2 {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Énergétique T40</h1>
+    <form id="testForm">
+        <div class="question">
+            <h2>1. Prendra rapidement la tête d’un groupe car n’aime pas passer inaperçu.</h2>
+            <label><input type="radio" name="q1" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q1" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q1" value="5"> Assez</label><br>
+            <label><input type="radio" name="q1" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>2. Tourne en plaisanterie les états d’âme d’autrui ; on vous reproche votre incompréhension.</h2>
+            <label><input type="radio" name="q2" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q2" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q2" value="5"> Assez</label><br>
+            <label><input type="radio" name="q2" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>3. Cultive sa vie intérieure, porté à écrire un journal intime.</h2>
+            <label><input type="radio" name="q3" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q3" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q3" value="5"> Assez</label><br>
+            <label><input type="radio" name="q3" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>4. D’optimisme souvent excessif, dédramatise tout, tendance à des actes irréfléchis.</h2>
+            <label><input type="radio" name="q4" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q4" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q4" value="5"> Assez</label><br>
+            <label><input type="radio" name="q4" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>5. Contre vous on se décourage car vous pratiquez la politique de l’inertie.</h2>
+            <label><input type="radio" name="q5" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q5" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q5" value="5"> Assez</label><br>
+            <label><input type="radio" name="q5" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>6. Peu troublé par les émotions, préfère entendre celles des autres que de raconter les siennes.</h2>
+            <label><input type="radio" name="q6" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q6" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q6" value="5"> Assez</label><br>
+            <label><input type="radio" name="q6" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>7. Vous êtes efficace, agissant avec méthode et régularité.</h2>
+            <label><input type="radio" name="q7" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q7" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q7" value="5"> Assez</label><br>
+            <label><input type="radio" name="q7" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>8. Se laisse vivre avec insouciance, aime bien dormir ou ne rien faire.</h2>
+            <label><input type="radio" name="q8" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q8" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q8" value="5"> Assez</label><br>
+            <label><input type="radio" name="q8" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>9. Désire obtenir la plus haute distinction dans son rôle en y sacrifiant le temps qu’il faut.</h2>
+            <label><input type="radio" name="q9" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q9" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q9" value="5"> Assez</label><br>
+            <label><input type="radio" name="q9" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>10. Négligent, préfère attendre que le temps arrange les choses.</h2>
+            <label><input type="radio" name="q10" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q10" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q10" value="5"> Assez</label><br>
+            <label><input type="radio" name="q10" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>11. Part battu d’avance avec l’impression qu’il n’y arrivera pas.</h2>
+            <label><input type="radio" name="q11" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q11" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q11" value="5"> Assez</label><br>
+            <label><input type="radio" name="q11" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>12. Actif en toute circonstance, diplomate, opportuniste, s’adapte avec souplesse aux situations variées.</h2>
+            <label><input type="radio" name="q12" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q12" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q12" value="5"> Assez</label><br>
+            <label><input type="radio" name="q12" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>13. Anxieux, indécis, timide, agité de mouvements d’impatience ou même se ronge les ongles.</h2>
+            <label><input type="radio" name="q13" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q13" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q13" value="5"> Assez</label><br>
+            <label><input type="radio" name="q13" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>14. Cordial, exubérant, boute-en-train, coléreux.</h2>
+            <label><input type="radio" name="q14" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q14" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q14" value="5"> Assez</label><br>
+            <label><input type="radio" name="q14" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>15. Quand on le contrarie, boude et aime qu’on devine pourquoi, qu’on le console.</h2>
+            <label><input type="radio" name="q15" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q15" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q15" value="5"> Assez</label><br>
+            <label><input type="radio" name="q15" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>16. Éprouve le besoin d’embellir la réalité, d’en rajouter ; on vous reproche de ne pas être objectif.</h2>
+            <label><input type="radio" name="q16" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q16" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q16" value="5"> Assez</label><br>
+            <label><input type="radio" name="q16" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>17. D’humeur égale, généralement impassible.</h2>
+            <label><input type="radio" name="q17" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q17" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q17" value="5"> Assez</label><br>
+            <label><input type="radio" name="q17" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>18. Désire attirer l’attention sur soi, même en utilisant la séduction.</h2>
+            <label><input type="radio" name="q18" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q18" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q18" value="5"> Assez</label><br>
+            <label><input type="radio" name="q18" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>19. Objectif et juste, rarement en colère, analyse sans passion.</h2>
+            <label><input type="radio" name="q19" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q19" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q19" value="5"> Assez</label><br>
+            <label><input type="radio" name="q19" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>20. Aime et consacre beaucoup de son temps aux plaisirs sensuels et à la société : cartes, jeux divers, pêche, table, réceptions, etc.</h2>
+            <label><input type="radio" name="q20" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q20" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q20" value="5"> Assez</label><br>
+            <label><input type="radio" name="q20" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>21. Se sent prédestiné aux nobles causes, aux entreprises difficiles.</h2>
+            <label><input type="radio" name="q21" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q21" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q21" value="5"> Assez</label><br>
+            <label><input type="radio" name="q21" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>22. Aime faire justice.</h2>
+            <label><input type="radio" name="q22" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q22" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q22" value="5"> Assez</label><br>
+            <label><input type="radio" name="q22" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>23. A besoin de changements, d’excitants, de divertissements.</h2>
+            <label><input type="radio" name="q23" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q23" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q23" value="5"> Assez</label><br>
+            <label><input type="radio" name="q23" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>24. Compense sa vulnérabilité par la lucidité.</h2>
+            <label><input type="radio" name="q24" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q24" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q24" value="5"> Assez</label><br>
+            <label><input type="radio" name="q24" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>25. À la fois très optimiste et anxieux, se presse car a toujours peur d’être en retard.</h2>
+            <label><input type="radio" name="q25" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q25" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q25" value="5"> Assez</label><br>
+            <label><input type="radio" name="q25" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>26. Résout froidement ses problèmes en les posant un par un et en cherchant la solution méthodiquement.</h2>
+            <label><input type="radio" name="q26" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q26" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q26" value="5"> Assez</label><br>
+            <label><input type="radio" name="q26" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>27. Décide très vite par impulsion et exécute immédiatement avec vigueur.</h2>
+            <label><input type="radio" name="q27" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q27" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q27" value="5"> Assez</label><br>
+            <label><input type="radio" name="q27" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>28. Timide, craintif, facilement découragé, manque quelquefois de goût à vivre.</h2>
+            <label><input type="radio" name="q28" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q28" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q28" value="5"> Assez</label><br>
+            <label><input type="radio" name="q28" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>29. Possède naturellement de l’autorité, un tempérament de commandeur.</h2>
+            <label><input type="radio" name="q29" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q29" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q29" value="5"> Assez</label><br>
+            <label><input type="radio" name="q29" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>30. On vous reproche d’entreprendre trop de choses à la fois, et de ne pas toujours achever ce qui est commencé.</h2>
+            <label><input type="radio" name="q30" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q30" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q30" value="5"> Assez</label><br>
+            <label><input type="radio" name="q30" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>31. Très exigeant à la fois envers soi-même et envers autrui.</h2>
+            <label><input type="radio" name="q31" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q31" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q31" value="5"> Assez</label><br>
+            <label><input type="radio" name="q31" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>32. On vous reproche d’être à la fois négligent et paresseux.</h2>
+            <label><input type="radio" name="q32" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q32" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q32" value="5"> Assez</label><br>
+            <label><input type="radio" name="q32" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>33. Très économe et méfiant, se laissera difficilement avoir.</h2>
+            <label><input type="radio" name="q33" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q33" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q33" value="5"> Assez</label><br>
+            <label><input type="radio" name="q33" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>34. Caractère accommodant, se laisse diriger.</h2>
+            <label><input type="radio" name="q34" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q34" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q34" value="5"> Assez</label><br>
+            <label><input type="radio" name="q34" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>35. Vous faites vos reproches avec plus d’humour que d’éclat.</h2>
+            <label><input type="radio" name="q35" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q35" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q35" value="5"> Assez</label><br>
+            <label><input type="radio" name="q35" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>36. Avide de solitude, organise sa vie à l’avance, n’aime pas l’improviste.</h2>
+            <label><input type="radio" name="q36" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q36" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q36" value="5"> Assez</label><br>
+            <label><input type="radio" name="q36" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>37. Volontiers moqueur, aime les jeux de mots, même un peu lourds.</h2>
+            <label><input type="radio" name="q37" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q37" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q37" value="5"> Assez</label><br>
+            <label><input type="radio" name="q37" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>38. On vous reproche d’être d’humeur instable, irritable, ou même de pleurer sans raison.</h2>
+            <label><input type="radio" name="q38" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q38" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q38" value="5"> Assez</label><br>
+            <label><input type="radio" name="q38" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>39. Vous vous considérez comme un être envié et jalousé.</h2>
+            <label><input type="radio" name="q39" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q39" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q39" value="5"> Assez</label><br>
+            <label><input type="radio" name="q39" value="10"> Beaucoup</label>
+        </div>
+        <div class="question">
+            <h2>40. Très souvent persuadé d’être dans son bon droit, aime discuter et couper les cheveux en quatre.</h2>
+            <label><input type="radio" name="q40" value="0"> Pas du tout</label><br>
+            <label><input type="radio" name="q40" value="2"> Un peu</label><br>
+            <label><input type="radio" name="q40" value="5"> Assez</label><br>
+            <label><input type="radio" name="q40" value="10"> Beaucoup</label>
+        </div>
+    </form>
+    <button id="submitBtn">Soumettre</button>
+    <div id="results"></div>
+
+    <script>
+        const questionTypologies = {
+            q1: 'Yang Instable',
+            q2: 'Yin Corpulent',
+            q3: 'Yin Mince',
+            q4: 'Yin Mince',
+            q5: 'Yang Instable',
+            q6: 'Yin Instable',
+            q7: 'Yang Mince',
+            q8: 'Yang Corpulent',
+            q9: 'Yang Corpulent',
+            q10: 'Yang Corpulent',
+            q11: 'Yin Mince',
+            q12: 'Yang Mince',
+            q13: 'Yin Instable',
+            q14: 'Yang Instable',
+            q15: 'Yin Instable',
+            q16: 'Yin Instable',
+            q17: 'Yang Mince',
+            q18: 'Yin Instable',
+            q19: 'Yang Mince',
+            q20: 'Yang Corpulent',
+            q21: 'Yang Corpulent',
+            q22: 'Yin Corpulent',
+            q23: 'Yin Instable',
+            q24: 'Yin Mince',
+            q25: 'Yang Instable',
+            q26: 'Yang Mince',
+            q27: 'Yang Instable',
+            q28: 'Yin Mince',
+            q29: 'Yang Corpulent',
+            q30: 'Yang Instable',
+            q31: 'Yang Corpulent',
+            q32: 'Yin Corpulent',
+            q33: 'Yin Corpulent',
+            q34: 'Yin Corpulent',
+            q35: 'Yang Mince',
+            q36: 'Yin Corpulent',
+            q37: 'Yang Instable',
+            q38: 'Yin Instable',
+            q39: 'Yang Corpulent',
+            q40: 'Yin Corpulent'
+        };
+
+        const typologyDescriptions = {
+            'Yang Corpulent': 'Vous êtes un Yang Corpulent. Vous avez une forte production de chaleur et une grande capacité d\'assimilation. Vous êtes jovial, expressif, mais vous devez surveiller votre tendance à la suralimentation.',
+            'Yin Corpulent': 'Vous êtes un Yin Corpulent. Vous avez une production de chaleur déficiente et une tendance à la stagnation des liquides. Vous devez stimuler votre métabolisme et éviter les aliments qui refroidissent le corps.',
+            'Yang Mince': 'Vous êtes un Yang Mince. Vous avez une forte production de chaleur mais une forme corporelle mince. Vous êtes dynamique et actif, mais vous devez veiller à ne pas épuiser votre énergie.',
+            'Yin Mince': 'Vous êtes un Yin Mince. Vous avez une production de chaleur déficiente et une forme corporelle mince. Vous êtes souvent frileux et devez renforcer votre énergie vitale.',
+            'Yang Instable': 'Vous êtes un Yang Instable. Vous avez des variations importantes dans la production et la répartition des énergies. Vous êtes impulsif et devez régulariser votre énergie.',
+            'Yin Instable': 'Vous êtes un Yin Instable. Vous avez des variations énergétiques intériorisées. Vous êtes anxieux et devez travailler sur la coordination de vos viscères.'
+        };
+
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const form = document.getElementById('testForm');
+            const scores = {
+                'Yang Corpulent': 0,
+                'Yin Corpulent': 0,
+                'Yang Mince': 0,
+                'Yin Mince': 0,
+                'Yang Instable': 0,
+                'Yin Instable': 0
+            };
+
+            for (let i = 1; i <= 40; i++) {
+                const question = 'q' + i;
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected) {
+                    const typology = questionTypologies[question];
+                    const score = parseInt(selected.value);
+                    scores[typology] += score;
+                }
+            }
+
+            let maxScore = 0;
+            let dominantTypology = '';
+            for (const typology in scores) {
+                if (scores[typology] > maxScore) {
+                    maxScore = scores[typology];
+                    dominantTypology = typology;
+                }
+            }
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2>Votre typologie dominante est : ${dominantTypology}</h2><p>${typologyDescriptions[dominantTypology]}</p>`;
+            resultsDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
