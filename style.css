@@ -62,6 +62,24 @@ main {
   background-color: #e64a19;
 }
 
+/* Navigation Home */
+.nav-home {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  background-color: #ff7043;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.nav-home:hover {
+  background-color: #e64a19;
+}
+
 /* Footer */
 footer {
   text-align: center;
