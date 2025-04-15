@@ -26,7 +26,16 @@
         .sidebar a:hover {
             background-color: #e5e7eb;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        main {
+            width: 100%;
+        }
         .content-section {
+            margin-bottom: 2rem;
+            padding: 0 1rem;
             scroll-margin-top: 2rem;
         }
         .content-section h2 {
@@ -44,6 +53,8 @@
             border-left: 4px solid #3b82f6;
             padding: 1rem;
             border-radius: 0.375rem;
+            margin: 1rem 0;
+            width: 100%;
         }
         .quiz-answer {
             display: none;
@@ -84,9 +95,8 @@
         <button id="menuToggle" class="md:hidden fixed top-4 right-4 z-50 bg-blue-500 text-white p-2 rounded">
             Menu
         </button>
-        <div class="flex flex-col md:flex-row gap-8">
-            <!-- Sidebar -->
-            <aside class="md:w-1/4">
+        <div class="flex flex-col">
+            <aside class="w-full md:w-64 mb-8">
                 <nav id="sidebar" class="sidebar">
                     <h2 class="text-xl font-semibold text-gray-800 mb-4">Sommaire</h2>
                     <ul class="space-y-2">
@@ -116,8 +126,7 @@
                 </nav>
             </aside>
 
-            <!-- Main Content -->
-            <main class="md:w-3/4">
+            <main class="w-full">
                 <section id="introduction" class="content-section mb-12">
                     <h2>Introduction</h2>
                     <p class="text-gray-700 mt-4">
