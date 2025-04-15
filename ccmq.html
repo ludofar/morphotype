@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire sur la Constitution en Médecine Chinoise (CCMQ)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+        .question-card {
+            transition: transform 0.2s;
+        }
+        .question-card:hover {
+            transform: translateY(-2px);
+        }
+        #result-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Questionnaire sur la Constitution en Médecine Chinoise (CCMQ)</h1>
+        <form id="ccmq-form" class="space-y-4">
+            <!-- Les questions seront insérées dynamiquement ici -->
+        </form>
+        <button id="submit-btn" class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200">Soumettre</button>
+        <div id="result-section" class="mt-6 p-4 bg-gray-100 rounded-md">
+            <h2 class="text-xl font-semibold text-gray-800">Votre Type de Constitution</h2>
+            <p id="result-text" class="text-gray-700 mt-2"></p>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { id: 1, text: "Vous sentez-vous énergique et plein de vitalité ?", type: "Équilibré" },
+            { id: 2, text: "Vous fatiguez-vous facilement après un effort physique ?", type: "Déficience de Qi" },
+            { id: 3, text: "Vous sentez-vous souvent essoufflé ou respirez-vous difficilement ?", type: "Déficience de Qi" },
+            { id: 4, text: "Parlez-vous doucement ou manque-t-on de force dans votre voix ?", type: "Déficience de Qi" },
+            { id: 5, text: "Attrapez-vous des rhumes fréquemment ?", type: "Déficience de Qi" },
+            { id: 6, text: "Vous sentez-vous déprimé ou démoralisé ?", type: "Stagnation de Qi" },
+            { id: 7, text: "Vous sentez-vous nerveux ou anxieux facilement ?", type: "Stagnation de Qi" },
+            { id: 8, text: "Soupirez-vous souvent sans raison apparente ?", type: "Stagnation de Qi" },
+            { id: 9, text: "Ressentez-vous une oppression ou un inconfort thoracique ?", type: "Stagnation de Qi" },
+            { id: 10, text: "Avez-vous souvent la bouche ou la gorge sèche ?", type: "Déficience de Yin" },
+            { id: 11, text: "Ressentez-vous de la chaleur dans les paumes ou les plantes des pieds ?", type: "Déficience de Yin" },
+            { id: 12, text: "Avez-vous des sueurs nocturnes ?", type: "Déficience de Yin" },
+            { id: 13, text: "Avez-vous souvent soif et préférez-vous des boissons fraîches ?", type: "Déficience de Yin" },
+            { id: 14, text: "Avez-vous facilement les membres froids ?", type: "Déficience de Yang" },
+            { id: 15, text: "Préférez-vous les environnements chauds et détestez-vous le froid ?", type: "Déficience de Yang" },
+            { id: 16, text: "Avez-vous des selles molles ou de la diarrhée facilement ?", type: "Déficience de Yang" },
+            { id: 17, text: "Urinez-vous fréquemment ou avez-vous une urine claire ?", type: "Déficience de Yang" },
+            { id: 18, text: "Faites-vous facilement des bleus ou avez-vous des taches sombres sur la peau ?", type: "Stase de Sang" },
+            { id: 19, text: "Ressentez-vous des douleurs fixes ou aiguës dans le corps ?", type: "Stase de Sang" },
+            { id: 20, text: "Avez-vous des cernes sous les yeux ?", type: "Stase de Sang" },
+            { id: 21, text: "Votre langue est-elle foncée ou violacée ?", type: "Stase de Sang" },
+            { id: 22, text: "Vous sentez-vous lourd ou léthargique dans votre corps ?", type: "Chaleur-Humidité" },
+            { id: 23, text: "Avez-vous la peau grasse ou des boutons facilement ?", type: "Chaleur-Humidité" },
+            { id: 24, text: "Ressentez-vous une sensation collante ou grasse dans la bouche ?", type: "Chaleur-Humidité" },
+            { id: 25, text: "Avez-vous une urine jaune ou une sensation de brûlure ?", type: "Chaleur-Humidité" },
+            { id: 26, text: "Produisez-vous beaucoup de glaires facilement ?", type: "Humidité-Glaires" },
+            { id: 27, text: "Vous sentez-vous ballonné ou plein après avoir mangé ?", type: "Humidité-Glaires" },
+            { id: 28, text: "Avez-vous un enduit épais sur la langue ?", type: "Humidité-Glaires" },
+            { id: 29, text: "Vous sentez-vous étourdi ou avez-vous la tête lourde ?", type: "Humidité-Glaires" },
+            { id: 30, text: "Vous adaptez-vous bien aux changements environnementaux ?", type: "Équilibré" },
+            { id: 31, text: "Tombez-vous rarement malade ou récupérez-vous rapidement ?", type: "Équilibré" },
+            { id: 32, text: "Dormez-vous bien et vous réveillez-vous reposé ?", type: "Équilibré" }
+        ];
+
+        const form = document.getElementById('ccmq-form');
+        questions.forEach(q => {
+            const div = document.createElement('div');
+            div.className = 'question-card bg-gray-50 p-4 rounded-md';
+            div.innerHTML = `
+                <p class="text-gray-700 mb-2">${q.id}. ${q.text}</p>
+                <div class="flex space-x-4">
+                    <label><input type="radio" name="q${q.id}" value="1" required> Jamais</label>
+                    <label><input type="radio" name="q${q.id}" value="2"> Rarement</label>
+                    <label><input type="radio" name="q${q.id}" value="3"> Parfois</label>
+                    <label><input type="radio" name="q${q.id}" value="4"> Souvent</label>
+                    <label><input type="radio" name="q${q.id}" value="5"> Toujours</label>
+                </div>
+            `;
+            form.appendChild(div);
+        });
+
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.addEventListener('click', () => {
+            const formData = new FormData(form);
+            const scores = {
+                Équilibré: 0,
+                DéficienceDeQi: 0,
+                StagnationDeQi: 0,
+                DéficienceDeYin: 0,
+                DéficienceDeYang: 0,
+                StaseDeSang: 0,
+                ChaleurHumidité: 0,
+                HumiditéGlaires: 0
+            };
+            const typeCounts = { ...scores };
+
+            questions.forEach(q => {
+                const score = parseInt(formData.get(`q${q.id}`)) || 0;
+                const type = q.type.replace(/\s/g, '');
+                scores[type] += score;
+                typeCounts[type]++;
+            });
+
+            // Ajuster le score Équilibré : inversion pour les traits positifs
+            scores.Équilibré = (typeCounts.Équilibré * 5) - scores.Équilibré + typeCounts.Équilibré;
+
+            // Normaliser les scores en pourcentage
+            Object.keys(scores).forEach(type => {
+                scores[type] = (scores[type] / (typeCounts[type] * 5)) * 100;
+            });
+
+            // Trouver le type dominant
+            let dominantType = 'Équilibré';
+            let maxScore = scores.Équilibré;
+            Object.keys(scores).forEach(type => {
+                if (scores[type] > maxScore) {
+                    maxScore = scores[type];
+                    dominantType = type;
+                }
+            });
+
+            // Générer la description du résultat et les conseils alimentaires
+            const descriptions = {
+                Équilibré: {
+                    text: "Vous avez une constitution équilibrée, signe d'une harmonie entre le Qi, le Yin, le Yang et une vitalité globale. Ce type reflète une bonne adaptabilité et une résilience aux changements environnementaux.",
+                    diet: "Maintenez l'équilibre avec une alimentation variée. Incluez des aliments neutres comme le riz, les carottes et le poulet. Intégrez les cinq saveurs (doux, acide, amer, piquant, salé) avec modération. Exemple : Congee aux légumes et protéines maigres. Évitez les extrêmes, comme les aliments trop épicés ou froids."
+                },
+                DéficienceDeQi: {
+                    text: "La constitution en déficience de Qi se caractérise par une faible énergie, une fatigue et une susceptibilité aux maladies due à une énergie vitale affaiblie. Vous pouvez vous fatiguer facilement et attraper des rhumes fréquemment.",
+                    diet: "Concentrez-vous sur des aliments tonifiants pour le Qi : avoine, patates douces, citrouille, poulet et dattes. Utilisez des épices réchauffantes comme le gingembre. Évitez les aliments froids ou crus (salades, boissons glacées). Exemple : Soupe de poulet au ginseng et baies de goji."
+                },
+                StagnationDeQi: {
+                    text: "La constitution en stagnation de Qi implique une tension émotionnelle, de l'anxiété et un inconfort physique comme une oppression thoracique, dû à un blocage du flux énergétique, souvent lié au stress.",
+                    diet: "Choisissez des aliments qui mobilisent le Qi : agrumes, menthe, curcuma et radis. Intégrez des graines de lotus apaisantes. Évitez l'alcool et les aliments lourds. Exemple : Thé à la menthe avec légumes sautés et porc maigre."
+                },
+                DéficienceDeYin: {
+                    text: "La constitution en déficience de Yin montre des signes de sécheresse interne et de chaleur, comme une bouche sèche, des sueurs nocturnes et des paumes chaudes, indiquant un manque de fluides nourrissants et refroidissants.",
+                    diet: "Nourrissez le Yin avec des poires, du tofu, des graines de sésame et des baies de goji. Restez hydraté avec des soupes tièdes. Évitez les aliments épicés ou frits. Exemple : Poire cuite à la vapeur avec du miel et du sésame noir."
+                },
+                DéficienceDeYang: {
+                    text: "La constitution en déficience de Yang est marquée par une intolérance au froid, des selles molles et un manque de chaleur, reflétant une énergie réchauffante insuffisante dans le corps.",
+                    diet: "Réchauffez le corps avec de l'agneau, du gingembre, de la cannelle et des noix. Préférez des repas cuits et chauds. Évitez les boissons froides et les légumes crus. Exemple : Ragoût d'agneau au gingembre et haricots noirs."
+                },
+                StaseDeSang: {
+                    text: "La constitution en stase de sang implique une mauvaise circulation, entraînant des bleus, des taches sombres et des douleurs fixes dues à un flux sanguin ralenti.",
+                    diet: "Favorisez la circulation avec du curcuma, des baies d'aubépine, des oignons et des légumes verts foncés. Évitez les aliments gras ou froids. Exemple : Chou frisé sauté à l'ail et thé à l'aubépine."
+                },
+                ChaleurHumidité: {
+                    text: "La constitution en chaleur-humidité se manifeste par une peau grasse, de l'acné et une sensation de lourdeur due à une accumulation d'humidité et de chaleur, souvent liée à l'alimentation ou au climat.",
+                    diet: "Éliminez la chaleur et l'humidité avec des haricots mung, du céleri, du concombre et de l'orge. Évitez les aliments gras ou épicés. Exemple : Soupe de haricots mung au céleri et riz."
+                },
+                HumiditéGlaires: {
+                    text: "La constitution en humidité-glaires est caractérisée par des ballonnements, une production de glaires et une léthargie due à une rétention de fluides et de mucus dans le corps.",
+                    diet: "Dissipez l'humidité avec des graines de coix, des champignons shiitake et du fenouil. Évitez les produits laitiers et les aliments sucrés. Exemple : Congee de shiitake et graines de coix au fenouil."
+                }
+            };
+
+            const resultText = `
+                <strong>Type : ${dominantType.replace(/([A-Z])/g, ' $1').trim()}</strong><br>
+                ${descriptions[dominantType].text}<br><br>
+                <strong>Conseils alimentaires :</strong><br>
+                ${descriptions[dominantType].diet}
+            `;
+
+            document.getElementById('result-text').innerHTML = resultText;
+            document.getElementById('result-section').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('result-section').offsetTop, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
