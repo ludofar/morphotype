@@ -22,8 +22,7 @@
         }
     </style>
 </head>
-<body 
-class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4">
     <div class="max-w-2xl w-full bg-white rounded-lg shadow-lg p-6">
         <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Questionnaire sur la Constitution en Médecine Chinoise (CCMQ)</h1>
         <form id="ccmq-form" class="space-y-4">
@@ -33,10 +32,11 @@ class="min-h-screen flex items-center justify-center p-4">
         <div id="result-section" class="mt-6 p-4 bg-gray-100 rounded-md">
             <h2 class="text-xl font-semibold text-gray-800">Votre Type de Constitution</h2>
             <p id="result-text" class="text-gray-700 mt-2"></p>
+            <h3 class="text-lg font-semibold text-gray-800 mt-4">Analyse des Scores par Type</h3>
+            <ul id="score-analysis" class="text-gray-700 mt-2 list-disc list-inside"></ul>
         </div>
     </div>
     <a href="index.html" class="nav-home">Accueil</a>
-
     <script>
         const questions = [
             { id: 1, text: "Vous sentez-vous énergique et plein de vitalité ?", type: "Équilibré" },
@@ -78,7 +78,7 @@ class="min-h-screen flex items-center justify-center p-4">
             const div = document.createElement('div');
             div.className = 'question-card bg-gray-50 p-4 rounded-md';
             div.innerHTML = `
-                <p class="text-gray-700 mb-2">${q.id}. ${q.text}</p>
+                <p class="text-gray-700 mb-2">${q.id}. ${q.text} <span class="text-gray-500 text-sm">(${q.type})</span></p>
                 <div class="flex space-x-4">
                     <label><input type="radio" name="q${q.id}" value="1" required> Jamais</label>
                     <label><input type="radio" name="q${q.id}" value="2"> Rarement</label>
@@ -116,8 +116,9 @@ class="min-h-screen flex items-center justify-center p-4">
             scores.Équilibré = (typeCounts.Équilibré * 5) - scores.Équilibré + typeCounts.Équilibré;
 
             // Normaliser les scores en pourcentage
+            const scorePercentages = {};
             Object.keys(scores).forEach(type => {
-                scores[type] = (scores[type] / (typeCounts[type] * 5)) * 100;
+                scorePercentages[type] = ((scores[type] / (typeCounts[type] * 5)) * 100).toFixed(2);
             });
 
             // Trouver le type dominant
@@ -166,6 +167,11 @@ class="min-h-screen flex items-center justify-center p-4">
                 }
             };
 
+            // Générer l'analyse des scores
+            const scoreAnalysis = Object.keys(scorePercentages).map(type => {
+                return `<li>${type.replace(/([A-Z])/g, ' $1').trim()} : ${scorePercentages[type]}%</li>`;
+            }).join('');
+
             const resultText = `
                 <strong>Type : ${dominantType.replace(/([A-Z])/g, ' $1').trim()}</strong><br>
                 ${descriptions[dominantType].text}<br><br>
@@ -174,6 +180,7 @@ class="min-h-screen flex items-center justify-center p-4">
             `;
 
             document.getElementById('result-text').innerHTML = resultText;
+            document.getElementById('score-analysis').innerHTML = scoreAnalysis;
             document.getElementById('result-section').style.display = 'block';
             window.scrollTo({ top: document.getElementById('result-section').offsetTop, behavior: 'smooth' });
         });

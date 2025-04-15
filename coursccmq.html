@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cours sur la Classification Énergétique et le CCMQ en Médecine Traditionnelle Chinoise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+        }
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+            height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #4b5563;
+            border-radius: 0.375rem;
+        }
+        .sidebar a:hover {
+            background-color: #e5e7eb;
+        }
+        .content-section {
+            scroll-margin-top: 2rem;
+        }
+        .content-section h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .content-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        .highlight-box {
+            background-color: #f3f4f6;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            border-radius: 0.375rem;
+        }
+        .quiz-answer {
+            display: none;
+        }
+        .quiz-answer.show {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">Cours sur la Classification Énergétique et le CCMQ en Médecine Traditionnelle Chinoise</h1>
+            <p class="mt-4 text-lg text-gray-600">Un guide complet pour comprendre les profils énergétiques et le Questionnaire de la Constitution en MTC</p>
+        </header>
+        <a href="index.html" class="nav-home">Accueil</a>
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Sidebar -->
+            <aside class="md:w-1/4">
+                <nav class="sidebar">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Sommaire</h2>
+                    <ul class="space-y-2">
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#part1">Partie 1 : Classification Énergétique</a>
+                            <ul class="pl-4 space-y-1">
+                                <li><a href="#part1-module1">Module 1 : Fondements</a></li>
+                                <li><a href="#part1-module2">Module 2 : Six Profils</a></li>
+                                <li><a href="#part1-module3">Module 3 : Méthodes d’Évaluation</a></li>
+                                <li><a href="#part1-module4">Module 4 : Diététique</a></li>
+                                <li><a href="#part1-module5">Module 5 : Étude Pratique</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#part2">Partie 2 : CCMQ</a>
+                            <ul class="pl-4 space-y-1">
+                                <li><a href="#part2-module1">Module 1 : Contexte</a></li>
+                                <li><a href="#part2-module2">Module 2 : Structure</a></li>
+                                <li><a href="#part2-module3">Module 3 : Interprétation</a></li>
+                                <li><a href="#part2-module4">Module 4 : Applications</a></li>
+                                <li><a href="#part2-module5">Module 5 : Étude Pratique</a></li>
+                                <li><a href="#part2-module6">Module 6 : Limites</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                        <li><a href="#evaluation">Évaluation</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="md:w-3/4">
+                <section id="introduction" class="content-section mb-12">
+                    <h2>Introduction</h2>
+                    <p class="text-gray-700 mt-4">
+                        La médecine traditionnelle chinoise (MTC) propose des approches holistiques pour évaluer la santé via les constitutions énergétiques. Ce cours combine deux méthodes clés : la classification énergétique en six profils (Yang/Yin corpulent, mince, instable), inspirée du <em>Ling Shu</em>, et le Questionnaire de la Constitution en Médecine Chinoise (CCMQ), qui identifie neuf constitutions. Ces outils permettent de personnaliser les soins, notamment en diététique, pour équilibrer le Yin-Yang et le Qi.
+                    </p>
+                </section>
+
+                <!-- Partie 1 : Classification Énergétique -->
+                <section id="part1" class="content-section mb-12">
+                    <h2>Partie 1 : Classification Énergétique</h2>
+
+                    <section id="part1-module1" class="mt-6">
+                        <h3>Module 1 : Fondements de la MTC</h3>
+                        <p class="text-gray-700 mt-2">
+                            La MTC repose sur le Yin (froid, matière) et le Yang (chaud, énergie), interconnectés avec le Qi (énergie vitale) et les Cinq Éléments (Bois, Feu, Terre, Métal, Eau). La constitution énergétique reflète l’interaction entre ces forces et la morphologie.
+                        </p>
+                    </section>
+
+                    <section id="part1-module2" class="mt-6">
+                        <h3>Module 2 : Les Six Profils Énergétiques</h3>
+                        <div class="highlight-box mt-4">
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li><strong>Yang corpulent</strong> : Vitalité élevée, chaleur, obésité possible, colérique.</li>
+                                <li><strong>Yin corpulent</strong> : Fatigue, lourdeur, œdèmes, léthargique.</li>
+                                <li><strong>Yang mince</strong> : Nerveux, dynamique, mince, stressé.</li>
+                                <li><strong>Yin mince</strong> : Faible énergie, frilosité, mince, réservé.</li>
+                                <li><strong>Yang instable</strong> : Impulsif, fatigable, énergie fluctuante.</li>
+                                <li><strong>Yin instable</strong> : Inhibé, anxieux, énergie irrégulière.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="part1-module3" class="mt-6">
+                        <h3>Module 3 : Méthodes d’Évaluation</h3>
+                        <p class="text-gray-700 mt-2">
+                            Les profils sont évalués par :
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                            <li><strong>Observation clinique</strong> : Morphologie, pouls, langue.</li>
+                            <li><strong>Interrogatoire</strong> : Symptômes, comportements.</li>
+                            <li><strong>Questionnaires</strong> : Tests qualitatifs (ex. en ligne).</li>
+                        </ul>
+                        <p class="text-gray-700 mt-2">
+                            Limites : Subjectivité, besoin de validation clinique.
+                        </p>
+                    </section>
+
+                    <section id="part1-module4" class="mt-6">
+                        <h3>Module 4 : Diététique et Recommandations</h3>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-2">
+                            <li><strong>Yang corpulent</strong> : Aliments frais (concombre, thé vert), éviter piment, fritures.</li>
+                            <li><strong>Yin corpulent</strong> : Aliments chauds (mouton, cannelle), éviter crudités.</li>
+                            <li><strong>Yang mince</strong> : Aliments hydratants (tofu, poire), éviter café.</li>
+                            <li><strong>Yin mince</strong> : Aliments réchauffants (gingembre, agneau), éviter salades.</li>
+                            <li><strong>Yang instable</strong> : Aliments neutres (riz, poulet), éviter alcool.</li>
+                            <li><strong>Yin instable</strong> : Aliments calmants (avoine, dattes), éviter stimulants.</li>
+                        </ul>
+                    </section>
+
+                    <section id="part1-module5" class="mt-6">
+                        <h3>Module 5 : Étude Pratique</h3>
+                        <p class="text-gray-700 mt-2">
+                            Simulez l’analyse d’un cas (ex. : femme, 40 ans, mince, nerveuse) pour identifier le profil et proposer un plan alimentaire.
+                        </p>
+                    </section>
+                </section>
+
+                <!-- Partie 2 : CCMQ -->
+                <section id="part2" class="content-section mb-12">
+                    <h2>Partie 2 : Questionnaire de la Constitution en Médecine Chinoise (CCMQ)</h2>
+
+                    <section id="part2-module1" class="mt-6">
+                        <h3>Module 1 : Contexte et Fondements</h3>
+                        <p class="text-gray-700 mt-2">
+                            Le CCMQ, développé par le Pr. Wang Qi dans les années 2000, s’appuie sur le <em>Huangdi Neijing</em>. Il évalue neuf constitutions : Équilibré, Déficience de Qi, Stagnation de Qi, Déficience de Yin, Déficience de Yang, Stase de Sang, Chaleur-Humidité, Humidité-Glaires, Allergique.
+                        </p>
+                    </section>
+
+                    <section id="part2-module2" class="mt-6">
+                        <h3>Module 2 : Structure et Méthodologie</h3>
+                        <p class="text-gray-700 mt-2">
+                            Le CCMQ comprend 60 questions notées de 1 (Jamais) à 5 (Toujours). Les scores sont convertis en pourcentage : (Score brut / (Nombre de questions × 5)) × 100. Équilibré est inversé pour les traits positifs.
+                        </p>
+                        <div class="highlight-box mt-4">
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li><strong>Équilibré</strong> : Énergie stable, bonne adaptabilité.</li>
+                                <li><strong>Déficience de Qi</strong> : Fatigue, rhumes fréquents.</li>
+                                <li><strong>Stagnation de Qi</strong> : Anxiété, oppression thoracique.</li>
+                                <li><strong>Déficience de Yin</strong> : Sécheresse, sueurs nocturnes.</li>
+                                <li><strong>Déficience de Yang</strong> : Froid, selles molles.</li>
+                                <li><strong>Stase de Sang</strong> : Bleus, douleurs fixes.</li>
+                                <li><strong>Chaleur-Humidité</strong> : Peau grasse, lourdeur.</li>
+                                <li><strong>Humidité-Glaires</strong> : Ballonnements, glaires.</li>
+                                <li><strong>Allergique</strong> : Éternuements, eczéma.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section id="part2-module3" class="mt-6">
+                        <h3>Module 3 : Interprétation des Résultats</h3>
+                        <p class="text-gray-700 mt-2">
+                            Scores : >40% (dominant), 30-40% (modéré), <30% (faible). Exemple : 65% Déficience de Qi suggère fatigue chronique.
+                        </p>
+                    </section>
+
+                    <section id="part2-module4" class="mt-6">
+                        <h3>Module 4 : Applications Pratiques</h3>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-2">
+                            <li><strong>Déficience de Qi</strong> : Poulet, ginseng, repos.</li>
+                            <li><strong>Stagnation de Qi</strong> : Menthe, méditation.</li>
+                            <li><strong>Déficience de Yin</strong> : Poire, tofu, hydratation.</li>
+                            <li><strong>Déficience de Yang</strong> : Agneau, gingembre, chaleur.</li>
+                            <li><strong>Chaleur-Humidité</strong> : Haricots mung, éviter alcool.</li>
+                        </ul>
+                    </section>
+
+                    <section id="part2-module5" class="mt-6">
+                        <h3>Module 5 : Étude Pratique</h3>
+                        <p class="text-gray-700 mt-2">
+                            Administrez un CCMQ simplifié (30 questions), calculez les scores, proposez des recommandations.
+                        </p>
+                    </section>
+
+                    <section id="part2-module6" class="mt-6">
+                        <h3>Module 6 : Limites et Perspectives</h3>
+                        <p class="text-gray-700 mt-2">
+                            Limites : Subjectivité, contexte culturel. Perspectives : Applications numériques, recherche génétique.
+                        </p>
+                    </section>
+                </section>
+
+                <section id="conclusion" class="content-section mb-12">
+                    <h2>Conclusion</h2>
+                    <p class="text-gray-700 mt-4">
+                        La classification énergétique et le CCMQ offrent des approches complémentaires pour personnaliser les soins en MTC. La première excelle dans l’analyse morphologique et comportementale, tandis que le CCMQ fournit une évaluation standardisée. Ensemble, ils optimisent la prévention et la diététique.
+                    </p>
+                </section>
+
+                <section id="evaluation" class="content-section mb-12">
+                    <h2>Évaluation</h2>
+                    <h3 class="mt-6">1. QCM (6 questions)</h3>
+                    <div class="space-y-6 text-gray-700 mt-4">
+                        <div>
+                            <p><strong>1. Quel profil énergétique est colérique et corpulent ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q1" value="a"> a) Yin mince</label></li>
+                                <li><label><input type="radio" name="q1" value="b"> b) Yang corpulent</label></li>
+                                <li><label><input type="radio" name="q1" value="c"> c) Yin instable</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q1-answer')">Voir la réponse</button>
+                            <p id="q1-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) Yang corpulent</strong> - Chaleur et vitalité élevée.</p>
+                        </div>
+                        <div>
+                            <p><strong>2. Quel aliment convient à un Yin mince ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q2" value="a"> a) Concombre</label></li>
+                                <li><label><input type="radio" name="q2" value="b"> b) Gingembre</label></li>
+                                <li><label><input type="radio" name="q2" value="c"> c) Tofu</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q2-answer')">Voir la réponse</button>
+                            <p id="q2-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) Gingembre</strong> - Réchauffe le corps.</p>
+                        </div>
+                        <div>
+                            <p><strong>3. Combien de constitutions le CCMQ identifie-t-il ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q3" value="a"> a) 7</label></li>
+                                <li><label><input type="radio" name="q3" value="b"> b) 9</label></li>
+                                <li><label><input type="radio" name="q3" value="c"> c) 11</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q3-answer')">Voir la réponse</button>
+                            <p id="q3-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) 9</strong> - Neuf types standardisés.</p>
+                        </div>
+                        <div>
+                            <p><strong>4. Quelle constitution CCMQ est liée à la peau grasse ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q4" value="a"> a) Déficience de Qi</label></li>
+                                <li><label><input type="radio" name="q4" value="b"> b) Chaleur-Humidité</label></li>
+                                <li><label><input type="radio" name="q4" value="c"> c) Stase de Sang</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q4-answer')">Voir la réponse</button>
+                            <p id="q4-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) Chaleur-Humidité</strong> - Lourdeur, acné.</p>
+                        </div>
+                        <div>
+                            <p><strong>5. Quel est un objectif pour un Yang instable ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q5" value="a"> a) Refroidir</label></li>
+                                <li><label><input type="radio" name="q5" value="b"> b) Stabiliser</label></li>
+                                <li><label><input type="radio" name="q5" value="c"> c) Réchauffer</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q5-answer')">Voir la réponse</button>
+                            <p id="q5-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) Stabiliser</strong> - Harmonise les fluctuations.</p>
+                        </div>
+                        <div>
+                            <p><strong>6. Quel score CCMQ indique un type dominant ?</strong></p>
+                            <ul class="list-none space-y-2">
+                                <li><label><input type="radio" name="q6" value="a"> a) >30%</label></li>
+                                <li><label><input type="radio" name="q6" value="b"> b) >40%</label></li>
+                                <li><label><input type="radio" name="q6" value="c"> c) >50%</label></li>
+                            </ul>
+                            <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('q6-answer')">Voir la réponse</button>
+                            <p id="q6-answer" class="quiz-answer text-green-600 mt-2"><strong>Réponse : b) >40%</strong> - Type prédominant.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-6">2. Étude de cas</h3>
+                    <div class="highlight-box mt-4">
+                        <p class="text-gray-700"><strong>Scénario :</strong> Femme, 45 ans, mince, nerveuse, sueurs nocturnes, bouche sèche. CCMQ : 60% Déficience de Yin, 25% Équilibré. Profil énergétique : probable Yang mince.</p>
+                        <p class="text-gray-700 mt-2"><strong>Questions :</strong></p>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                            <li>Quels sont les diagnostics (CCMQ et énergétique) ?</li>
+                            <li>Quels aliments recommander ?</li>
+                            <li>Quelles pratiques suggérer ?</li>
+                        </ol>
+                        <button class="mt-4 text-blue-600 hover:underline" onclick="toggleAnswer('case-answer')">Voir la réponse</button>
+                        <div id="case-answer" class="quiz-answer text-green-600 mt-4">
+                            <p><strong>Réponses :</strong></p>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li><strong>Diagnostics</strong> : CCMQ = Déficience de Yin ; Énergétique = Yang mince (chaleur, nervosité).</li>
+                                <li><strong>Aliments</strong> : Poire, tofu, graines de sésame, soupes tièdes. Éviter épices, café.</li>
+                                <li><strong>Pratiques</strong> : Méditation, environnements calmes, hydratation régulière.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-6">3. Projet</h3>
+                    <p class="text-gray-700 mt-2">
+                        Proposez un plan alimentaire pour une personne avec un profil Yin corpulent (énergétique) et une constitution Humidité-Glaires (CCMQ).
+                    </p>
+                    <button class="mt-2 text-blue-600 hover:underline" onclick="toggleAnswer('project-answer')">Voir la réponse</button>
+                    <div id="project-answer" class="quiz-answer text-green-600 mt-4">
+                        <p><strong>Plan :</strong></p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Petit-déjeuner</strong> : Congee de coix, châtaignes, thé au fenouil.</li>
+                            <li><strong>Déjeuner</strong> : Shiitake sauté, riz gluant, légumes cuits.</li>
+                            <li><strong>Dîner</strong> : Soupe de poulet léger, radis, orge.</li>
+                            <li><strong>À éviter</strong> : Laitages, sucre, crudités.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-600">
+                    </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
